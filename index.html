@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#d5e7ee" />
+    <link rel="icon" href="data:," />
+    <title>方块世界 · 自由建造</title>
+  </head>
+  <body data-playing="false">
+    <main id="app">
+      <!-- tabindex 让画布可以获得键盘焦点。 -->
+      <canvas id="game-canvas" tabindex="0" aria-label="第一人称体素世界"></canvas>
+      <header class="game-header">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">▧</span>
+          <div><h1>方块世界</h1><p>一小片自由，等你创造</p></div>
+        </div>
+        <span class="step-label">自由建造 · 20 × 20</span>
+        <span id="block-count" class="block-count">400 个方块</span>
+      </header>
+
+      <div class="mode-label" id="mode-label">鼠标转向 · Esc 暂停</div>
+      <div id="crosshair" aria-hidden="true"></div>
+      <div id="target-label"></div>
+      <div id="action-message" role="status"></div>
+
+      <div id="menu" class="menu">
+        <section class="menu-card" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+          <p class="eyebrow">YOUR LITTLE BLOCK WORLD</p>
+          <h2 id="menu-title">走进你的方块世界。</h2>
+          <p class="menu-description">从一片草地开始，亲手改变每一块方块。</p>
+          <div class="controls-list">
+            <span><kbd>W A S D</kbd> 移动</span>
+            <span><kbd>鼠标</kbd> 转动视角</span>
+            <span><kbd>空格</kbd> 跳跃</span>
+            <span><kbd>Esc</kbd> 暂停 / 释放鼠标</span>
+            <span><kbd>左键</kbd> 破坏方块</span>
+            <span><kbd>右键</kbd> 放置方块</span>
+            <span><kbd>1 / 2 / 3</kbd> 切换方块</span>
+          </div>
+          <button id="start-button" type="button">进入世界 <span aria-hidden="true">→</span></button>
+          <p id="menu-message" class="menu-message" role="status">点击后锁定鼠标，按 Esc 暂停。刷新页面会重建世界。</p>
+        </section>
+      </div>
+
+      <div class="hotbar-wrap">
+        <div id="selected-name"></div>
+        <div id="hotbar" role="group" aria-label="方块选择栏"></div>
+        <p class="hotbar-hint">左键挖掘 · 右键放置 · 1 / 2 / 3 切换</p>
+      </div>
+      <footer class="scene-status">
+        <span class="status-dot ready" aria-hidden="true"></span>
+        <span id="status-text">正在生成世界…</span>
+      </footer>
+    </main>
+    <noscript>请启用浏览器的 JavaScript 后再打开游戏。</noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
